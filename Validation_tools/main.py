@@ -9,6 +9,10 @@ def main():
         print(f"Sequence length: {len(result)}")
         counts = count_nucleotides(result)
         print("Nucleotide counts:", counts)
+        print(f"Original sequence and Reverse complement:\n5 {result} 3")
+        print(f"  {''.join('|' for _ in result)}")
+        dna_reverse_complement = reverse_complement(result)
+        print(f"3 {dna_reverse_complement} 5")
         rna_sequence = transcribe_dna_to_rna(result)
         print("Transcribed RNA sequence:", rna_sequence)
     else:

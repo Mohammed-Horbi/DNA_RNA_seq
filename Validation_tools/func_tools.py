@@ -24,3 +24,10 @@ def count_nucleotides(sequence):
 def transcribe_dna_to_rna(sequence):
     sequence = sequence.upper()
     return sequence.replace('T', 'U')
+
+def reverse_complement(sequence):
+    """Get the reverse complement of a DNA sequence."""
+    complement = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}
+    sequence = sequence.upper()
+    rev_comp = ''.join(complement[base] for base in reversed(sequence))
+    return rev_comp
