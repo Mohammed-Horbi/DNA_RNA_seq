@@ -6,8 +6,11 @@ def main():
     result = is_valid_nucleotide_sequence(test_sequence)
     if result:
         print(f"Valid sequence: {result}")
+        print(f"Sequence length: {len(result)}")
         counts = count_nucleotides(result)
         print("Nucleotide counts:", counts)
+        rna_sequence = transcribe_dna_to_rna(result)
+        print("Transcribed RNA sequence:", rna_sequence)
     else:
         print("Invalid nucleotide sequence.")
 

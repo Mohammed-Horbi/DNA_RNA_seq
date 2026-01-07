@@ -1,5 +1,5 @@
 import collections
-nicleotides = ['A', 'T', 'C', 'G', 'U']
+nicleotides = ['A', 'T', 'C', 'G']
 
 def is_valid_nucleotide_sequence(sequence):
     """Check if the given sequence contains only valid nucleotides."""
@@ -20,3 +20,9 @@ def count_nucleotides(sequence):
     # return counts
     # or we can use collections.Counter directly
     return dict(collections.Counter(sequence))
+
+def transcribe_dna_to_rna(sequence):
+    sequence = sequence.upper()
+    # if not is_valid_nucleotide_sequence(sequence):
+    #     raise ValueError("Invalid nucleotide sequence")
+    return sequence.replace('T', 'U')
