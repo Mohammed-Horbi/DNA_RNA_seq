@@ -23,6 +23,4 @@ def count_nucleotides(sequence):
 
 def transcribe_dna_to_rna(sequence):
     sequence = sequence.upper()
-    # if not is_valid_nucleotide_sequence(sequence):
-    #     raise ValueError("Invalid nucleotide sequence")
     return sequence.replace('T', 'U')
