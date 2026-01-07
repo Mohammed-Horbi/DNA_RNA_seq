@@ -31,3 +31,16 @@ def reverse_complement(sequence):
     sequence = sequence.upper()
     rev_comp = ''.join(complement[base] for base in reversed(sequence))
     return rev_comp
+
+def colored_seq(sequence):
+    sequence = sequence.upper()
+    # ANSI colors (works in many terminals)
+    m = {
+        "A": "\033[31mA\033[0m",  # red
+        "C": "\033[34mC\033[0m",  # blue
+        "G": "\033[32mG\033[0m",  # green
+        "T": "\033[33mT\033[0m",  # yellow
+        "U": "\033[33mU\033[0m",  # yellow
+        # "N": "\033[90mN\033[0m",  # gray
+    }
+    return "".join(m.get(ch.upper(), ch) for ch in sequence)
