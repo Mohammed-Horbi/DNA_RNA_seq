@@ -44,3 +44,19 @@ def colored_seq(sequence):
         # "N": "\033[90mN\033[0m",  # gray
     }
     return "".join(m.get(ch.upper(), ch) for ch in sequence)
+
+def gc_content(sequence):
+    """Calculate the GC content of a DNA sequence."""
+    sequence = sequence.upper()
+    gc_count = sequence.count('G') + sequence.count('C')
+    return (gc_count / len(sequence)) * 100 if len(sequence) > 0 else 0
+
+def gc_content_subsequence(sequence, window_size):
+    """window_size indicates the size or length of each subsequence."""
+    """Calculate GC content in sliding windows or subsequences across the sequence."""
+    sequence = sequence.upper()
+    gc_contents = []
+    for i in range(0, len(sequence) - window_size + 1, window_size):
+        sub_seq = sequence[i:i + window_size]
+        gc_contents.append(gc_content(sub_seq))
+    return gc_contents

@@ -2,13 +2,18 @@ from func_tools import *
 import random
 
 def main():
-    test_sequence = ''.join([random.choice(nicleotides) for nuc in range(50 )])
+    test_sequence = ''.join([random.choice(nicleotides) for nuc in range(50)])
     result = is_valid_nucleotide_sequence(test_sequence)
     if result:
         print(f"Valid sequence: {result}")
         print(f"Sequence length: {len(result)}")
         counts = count_nucleotides(result)
-        print("Nucleotide counts:", counts)
+        print("Nucleotide counts of the whole sequence:", counts)
+        gc_percent = gc_content(result)
+        print(f"GC Content of the whole sequence: {gc_percent:.2f}%")
+        window_size = 10
+        gc_subseq = gc_content_subsequence(result, window_size) 
+        print(f"GC Content in subsequences of size {window_size}: {gc_subseq}")
         print(f"Original sequence and Reverse complement:\n5 {colored_seq(result)} 3")
         print(f"  {''.join('|' for _ in result)}")
         dna_reverse_complement = reverse_complement(result)
